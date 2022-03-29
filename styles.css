@@ -15,6 +15,37 @@ label, input{
 .quote-form h2 {
     margin: 0 0 15px;
 }
+
+/* Client Profile CSS Style */
+.quote-form-p {
+  width: 600px;
+  margin: 50px auto;
+  font-size: 15px;
+}
+.quote-form-p form {
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+.quote-form-p h2 {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.quote-form-p h4 {
+  color: grey;
+  font-size: 15px;
+  margin: 0 0 5px 50px;
+}
+.quote-form-p p {
+  margin: 0 15px 15px 50px;
+  font-size: 20px;
+  font-weight: normal;
+  font-weight: 500;
+  box-shadow: 0px 2px 0px rgba(158, 158, 158, 0.3);
+  background-color: #f7f7f7;
+}
+
 .form-control, .btn {
     min-height: 38px;
     border-radius: 2px;
@@ -53,3 +84,4 @@ table, th, td, caption {
 /* Create an active/current tablink class */
 .tab button.active {
   background-color: #ccc;
+}
