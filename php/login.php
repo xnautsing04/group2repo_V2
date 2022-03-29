@@ -1,12 +1,14 @@
 <?php
+
+require_once('php_class/Login.php');
+
     if(isset($_POST['login'])){
         $username = $_POST["username"];
         $password = $_POST["password"];
-        
-        setcookie("username",$username,time() + 60*60*24*30);
-        setcookie("password",$password,time() + 60*60*24*30);
-        
-        header("Location: fuelQuoteForm.php");
+                
+        $userLogin = new Login($_POST["username"], $_POST["password"]);
+                
+        $userLogin -> checkUserPassword();
     }
     else if (isset($_COOKIE["username"]) && isset($_COOKIE["password"])){
         header("Location: fuelQuoteForm.php");
@@ -55,4 +57,3 @@
 </div>
 </body>
 </html>
-
