@@ -23,3 +23,6 @@ function historyTab()
     window.location.href = "../php/fuel_quote_history.php";
 }
 
+function logoutTab(){
+    window.location.href = "../php/loggingOut.php";
+}
