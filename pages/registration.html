@@ -1,3 +1,4 @@
+<!-- Form to Register a New Account -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,7 @@
 	<script src = "../js/formMover.js"></script>
 </head>
 <body>
+	<!-- Tabs -->
 	<header>
 		<div class="tab">
 			<button class="tablinks" onclick="loginTab()">Login</button>
@@ -23,6 +25,8 @@
 			<button class="tablinks" onclick="historyTab()">Fuel Quote History</button>
 		</div>
 	</header>
+
+	<!-- Body portion to input registration information -->
 	<div class="quote-form">
 		<form action="../php/registration_confirmation.php" method="POST">
 			<h2 class="text-center">Register</h2>
@@ -36,7 +40,7 @@
 				<button type="submit" class="btn btn-primary btn-block">Register</button>
 			</div>
 		</form>
-		<p class="text-center"><a href="login.html">Already have an Account?</a></p>
+		<p class="text-center"><a href="../php/login.php">Already have an Account?</a></p>
 	</div>
 </body>
 </html>
