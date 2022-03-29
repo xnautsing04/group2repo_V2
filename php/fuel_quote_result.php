@@ -41,6 +41,7 @@ else{
             <button class="tablinks" onclick="profileTab()">Profile</button>
             <button class="tablinks" onclick="quoteTab()">Fuel Quote</button>
             <button class="tablinks" onclick="historyTab()">Fuel Quote History</button>
+            <button class ="tablinks" onclick ="logoutTab()" style = "float: right;">Log Out</button>
         </div>
   </header>
 <div class = "quote-form">
