@@ -23,21 +23,20 @@
         
             $dbconnect = pg_connect($connectionString);
             
-            $queryString = "SELECT Password FROM UserCredentials WHERE Username = '".$this->username."';";
+            $queryString = "SELECT Password FROM UserCredentials WHERE Username = '".$this->username."' AND Password = crypt('".$this->password."', password);";
             
             $queryResult = pg_query($dbconnect, $queryString);
             if (!$queryResult){
                 echo "An error occured";
                 exit;
             }
-            
-            $savedPassword = pg_fetch_row($queryResult)[0];
 
-            
-            if ($this->password != $savedPassword){
+            if (!pg_fetch_row($queryResult)){
                 header("Location: ../pages/login_err.html");
             }
             else{
+                setcookie("username",$this->username,time() + 60*60*24*30);
+                setcookie("password",$this->password,time() + 60*60*24*30);
                 header("Location: ../php/fuelQuoteForm.php");
                 $this->validLogin = true;
             }
@@ -70,6 +69,12 @@
         
         public function getLogin(){
             return $this->validLogin;
+        }
+        
+        public static function logOut(){
+            setcookie("username","",time() - 3600);
+            setcookie("password","",time() -3600);
+            header("Location: ../php/login.php");
         }
     }
 ?>
