@@ -29,7 +29,7 @@ require_once('./php_class/Login.php');
         
         public function testValidLogin(): void
         {
-            $userLogin = new Login ("testUsername", "testPassword123!!");
+            $userLogin = new Login ("cooldude9", "Fluffy2007!");
         
             $this->assertSame($userLogin->getLogin(), true);
         }
@@ -41,5 +41,15 @@ require_once('./php_class/Login.php');
             $this->assertSame($userLogin->getLogin(), false);
         }
         
+        public function testLogout(): void
+        {
+            Login::logOut();
+            $this->assertTrue(!isset($_COOKIE["username"]));
+        }
+        
+        public function testAddr():void
+        {
+            $this->assertSame(Login::userAddr('cooldude9'), "123 Alphabet Rd 456 Orange St, Houston, TX 77204");
+        }
     }
 
