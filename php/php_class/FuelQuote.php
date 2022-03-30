@@ -78,14 +78,15 @@ require_once('PriceCalculator.php');
             }
             
             $userAddress = pg_fetch_row($queryResult);
-            $addressString = $userAddress[0]." ".$userAddress[1].", ".$userAddress[2].", ".$userAddress[3]." ".$userAddress[4];
+            if($userAddress)
+            {
+                $addressString = $userAddress[0]." ".$userAddress[1].", ".$userAddress[2].", ".$userAddress[3]." ".$userAddress[4];
             $suggestedPrice = floatval(substr(PriceCalculator::suggestedPrice(), 1));
             $totalPrice = floatval(substr($this->calculatePrice(), 1));
+            $time = strval(time());
             
             $insertString = 'INSERT INTO FuelQuote (Serial_No, Username, Address, Delivery_Date, Gallon_Number, Suggested_Price, Total_Price)';
-            $insertString .= ' VALUES (\''.strval(time()).'\', \''.$this->username.'\', \''.$addressString.'\', \''.$this->deliveryDate.'\', '.$this->numGallons.', '.$suggestedPrice.', '.$totalPrice.');';
-
-            echo($insertString);
+            $insertString .= ' VALUES (\''.$time.'\', \''.$this->username.'\', \''.$addressString.'\', \''.$this->deliveryDate.'\', '.$this->numGallons.', '.$suggestedPrice.', '.$totalPrice.');';
             
             $res = pg_query($dbconnect, $insertString);
             if ($res){
@@ -94,5 +95,11 @@ require_once('PriceCalculator.php');
             else{
                 header("Location: ../pages/fuel_quote_err.html");
             }
+            }
+            else
+            {
+                header("Location: ../pages/fuel_quote_err.html");
+            }
+            
         }
     }
