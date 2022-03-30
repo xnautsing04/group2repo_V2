@@ -1,4 +1,3 @@
-<!-- Client Profile Class -->
 <?php
     class ClientProfileManagement{
         // Client Management Variables
