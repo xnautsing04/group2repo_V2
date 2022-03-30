@@ -1,4 +1,3 @@
-<!-- Client Registration Class -->
 <?php
     class ClientRegistration{
         // Registration Variables
