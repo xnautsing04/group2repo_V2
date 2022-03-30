@@ -76,5 +76,26 @@
             setcookie("password","",time() -3600);
             header("Location: ../php/login.php");
         }
+        
+        public static function userAddr($loggedUser){
+            $JSONcontents = file_get_contents("../json/database.json");
+            $databaseObj = json_decode($JSONcontents);
+        
+            $connectionString = "host=".$databaseObj->host." port=".$databaseObj->port." dbname=".$databaseObj->dbname." user=".$databaseObj->user." password=".$databaseObj->password;
+        
+            $dbconnect = pg_connect($connectionString);
+            
+            $queryString = "SELECT Address_1, Address_2, City, State, Zipcode FROM ClientInformation WHERE Username = '".$loggedUser."';";
+            $queryResult = pg_query($dbconnect, $queryString);
+            
+            if(!$queryResult){
+                echo("Error");
+                exit();
+            }
+            
+            $userAddress = pg_fetch_row($queryResult);
+            $addressString = $userAddress[0]." ".$userAddress[1].", ".$userAddress[2].", ".$userAddress[3]." ".$userAddress[4];
+            return $addressString;
+        }
     }
 ?>
