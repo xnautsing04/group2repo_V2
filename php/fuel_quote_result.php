@@ -1,5 +1,6 @@
-
 <?php
+
+require_once("php_class/Login.php");
 
 if(isset($_COOKIE["username"])){
     $user = $_COOKIE["username"];
@@ -61,7 +62,7 @@ else{
 
         <div class = "form-group">
             <label for = "DelAddr">Delivery Address:</label>
-            <span id = "profileAddress"></span>
+            <span id = "profileAddress"><?php echo Login::userAddr($user) ?></span>
         </div>
 
         <div class = "form-group">
@@ -82,6 +83,5 @@ else{
     </form>
 </div>
 
-<script src = "../js/formFiller.js"></script>
 </body>
 </html> 
