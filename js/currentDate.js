@@ -1,3 +1,4 @@
+//This function calculates the current date and displays it on the fuel quote page, ensuring it is up to date.
 function fillCurrentDate(){
     let currentDate = new Date();
     let dateString = currentDate.getFullYear() + "-";
