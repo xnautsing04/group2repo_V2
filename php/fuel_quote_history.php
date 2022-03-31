@@ -1,5 +1,8 @@
+<!-- Fuel Quote History Page -->
+
 <?php
 
+//This ensures that if a user is not logged in, it will direct them to the login page.
 if(isset($_COOKIE["username"])){
     $user = $_COOKIE["username"];
     
