@@ -1,6 +1,8 @@
 <?php
 require_once('FuelQuote.php');
 class FuelHistory{
+    
+    //This function generates HTML from the information retrieved from the database.
     static function generateHistory($username){
         
         $JSONcontents = file_get_contents("../json/database.json");
@@ -44,4 +46,3 @@ class FuelHistory{
         return $tableHTML;
     }
 }
-
