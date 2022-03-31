@@ -1,7 +1,10 @@
+<!-- Login Page -->
+
 <?php
 
 require_once('php_class/Login.php');
 
+//This sets the cookies for username and password, and skips the login page if cookies are already set.
     if(isset($_POST['login'])){
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -53,7 +56,7 @@ require_once('php_class/Login.php');
 <input type="submit" id= "login" name = "login" class="btn btn-primary btn-block" value = "Log in">
 </div>
 </form>
-<p class="text-center"><a href="client_registration.html">Create an Account</a></p>
+<p class="text-center"><a href="../pages/registration.html">Create an Account</a></p>
 </div>
 </body>
 </html>
