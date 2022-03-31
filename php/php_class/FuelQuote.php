@@ -1,10 +1,16 @@
 <?php
 require_once('PriceCalculator.php');
     class FuelQuote{
+        //This variable stores the number of gallons ordered.
         private $numGallons;
+        
+        //This variable stores the requested delivery date.
         private $deliveryDate;
+        
+        //This variable stores the username who requested the fuel quote.
         private $username;
 
+        //This function ensures the data sent are valid, such as nonnegative numbers and a date that is not in the past.
         function validateParams($gallons, $delivery, $username){
             $validParams = true;
             if (!is_numeric($gallons)){
@@ -25,6 +31,7 @@ require_once('PriceCalculator.php');
             return $validParams;
         }
         
+        //Constructor that ensures the parameters are valid and if not, display the error page.
         function __construct($gallons, $delivery, $username){
             if ($this->validateParams($gallons, $delivery, $username)){
                 $this->numGallons = $gallons;
@@ -32,21 +39,23 @@ require_once('PriceCalculator.php');
                 $this->username = $username;
             }
             else{
-                //TEMP FOR TESTING, WILL DO MORE LATER
                 $this->numGallons = -1;
                 $this->deliveryDate = "1901-01-01";
                 header("Location: ../pages/fuel_quote_err.html");
             }
         }
 
+        //Returns the number of gallons ordered.
         public function getGallons(){
             return $this->numGallons;
         }
 
+        //Return the date requested.
         public function getDate(){
             return $this->deliveryDate;
         }
         
+        //Use the Price Calculator and the number of gallons requested to calculate the total price.
         public function calculatePrice(){
              //This will later be calculated/gathered from the pricing module, saved as it's own object.
             $suggestedCost = PriceCalculator::suggestedPrice();
@@ -61,6 +70,7 @@ require_once('PriceCalculator.php');
             return("$".$totalCostFormat);
         }
         
+        //Use the database information to input the requested data into the database.
         public function insertData(){
             $JSONcontents = file_get_contents("../json/database.json");
             $databaseObj = json_decode($JSONcontents);
@@ -103,3 +113,4 @@ require_once('PriceCalculator.php');
             
         }
     }
+
