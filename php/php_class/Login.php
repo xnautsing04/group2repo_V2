@@ -1,9 +1,15 @@
 <?php
     class Login{
+        //This variable stores the username submitted by the user.
         private $username;
+        
+        //This variable stores the password submitted by the user.
         private $password;
+        
+        //This variable stores true if the login is vald, and false if it is not.
         private $validLogin;
 
+        //This function checks that neither username or password are null.
         function validateParams($Username, $Password){
             if ($Username != null && $Password != null){
                 $validParams = true;
@@ -15,6 +21,7 @@
             return $validParams;
         }
         
+        //Check the username and password with what is encrypted in the database.
         function checkUserPassword(){
             $JSONcontents = file_get_contents("../json/database.json");
             $databaseObj = json_decode($JSONcontents);
@@ -42,6 +49,7 @@
             }
         }
 
+        //Constructor that validates the parameter and then checks the username for a valid entry.
         function __construct($Username, $Password){
             
             $this -> validLogin = false;
@@ -59,24 +67,29 @@
             $this -> checkUserPassword();
         }
 
+        //This function returns the username.
         public function getUsername(){
             return $this->username;
         }
 
+        //This function returns the password.
         public function getPassword(){
             return $this->password;
         }
         
+        //This function returns whether the login is valid or not.
         public function getLogin(){
             return $this->validLogin;
         }
         
+        //This function resets the cookies for username and password.
         public static function logOut(){
             setcookie("username","",time() - 3600);
             setcookie("password","",time() -3600);
             header("Location: ../php/login.php");
         }
         
+        //This function retrieves the address for the user submitted.
         public static function userAddr($loggedUser){
             $JSONcontents = file_get_contents("../json/database.json");
             $databaseObj = json_decode($JSONcontents);
