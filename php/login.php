@@ -1,34 +1,29 @@
-<!-- Login Page -->
-
 <?php
 
 require_once('php_class/Login.php');
 
 //This sets the cookies for username and password, and skips the login page if cookies are already set.
-    if(isset($_POST['login'])){
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+    if(null !== (filter_input(INPUT_POST, "login"))){
+        $username = filter_input(INPUT_POST, "username");
+        $password = filter_input(INPUT_POST, "password");
                 
-        $userLogin = new Login($_POST["username"], $_POST["password"]);
+        $userLogin = new Login(filter_input(INPUT_POST, "username"), filter_input(INPUT_POST, "password"));
                 
         $userLogin -> checkUserPassword();
     }
-    else if (isset($_COOKIE["username"]) && isset($_COOKIE["password"])){
+    else if (null !== (filter_input(INPUT_COOKIE, "username")) && null !== (filter_input(INPUT_COOKIE, "password"))){
         header("Location: fuelQuoteForm.php");
     }
 ?>
 
 <!DOCTYPE html>
+<!-- Login Page -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Fuel Quote Login</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../bootstrap.min.css" type="text/css">
 <script src ="../js/tab.js"></script>
 <link rel="stylesheet" href="../styles.css">
 </head>

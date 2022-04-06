@@ -1,11 +1,8 @@
-<!-- Fuel Quote History Page -->
-
 <?php
 
 //This ensures that if a user is not logged in, it will direct them to the login page.
-if(isset($_COOKIE["username"])){
-    $user = $_COOKIE["username"];
-    
+if(null !== (filter_input(INPUT_COOKIE, "username"))){
+    $user = filter_input(INPUT_COOKIE, "username");
 }
 else{
     header("Location: login.php");
@@ -15,19 +12,14 @@ else{
 
 
 <!DOCTYPE html>
+<!-- Fuel Quote History Page -->
 <html lang = "en">
     <meta charset="UTF-8">
     <title>Fuel Quote Form</title>
-    <head>
-        <link rel="stylesheet" href="../styles.css">
-        <script src = "../js/formMover.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src ="../js/tab.js"></script>
-    </head>
+    <link rel="stylesheet" href="../styles.css">
+    <script src = "../js/formMover.js"></script>
+    <script src ="../js/tab.js"></script>
+    <link rel="stylesheet" href="../bootstrap.min.css" type="text/css">
     <body>
         <header>
             <!-- Tab links -->
