@@ -5,3 +5,4 @@
 require_once("php_class/Login.php");
 
 Login::logOut();
+header("Location: ../php/login.php");

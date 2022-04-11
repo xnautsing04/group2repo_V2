@@ -41,7 +41,6 @@ require_once('PriceCalculator.php');
             else{
                 $this->numGallons = -1;
                 $this->deliveryDate = "1901-01-01";
-                header("Location: ../pages/fuel_quote_err.html");
             }
         }
 
@@ -100,15 +99,15 @@ require_once('PriceCalculator.php');
             
             $res = pg_query($dbconnect, $insertString);
             if ($res){
-                header("Location: ../pages/fuel_quote_confirmation.html");
+                return true;
             }
             else{
-                header("Location: ../pages/fuel_quote_err.html");
+                return false;
             }
             }
             else
             {
-                header("Location: ../pages/fuel_quote_err.html");
+                return false;
             }
             
         }

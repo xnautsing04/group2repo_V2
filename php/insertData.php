@@ -16,6 +16,14 @@ else{
 <?php
 require_once('php_class/FuelQuote.php');
 $userQuote = new FuelQuote(filter_input(INPUT_POST, "GallonNumberConf"), filter_input(INPUT_POST, "DelDateConf"), $user);
+if ($userQuote -> getGallons() == -1){
+    header("Location: ../pages/fuel_quote_err.html");
+}
 
-$userQuote->insertData();
+if($userQuote->insertData()){
+    header("Location: ../pages/fuel_quote_confirmation.html");
+}
+else{
+    header("Location: ../pages/fuel_quote_err.html");
+}
 

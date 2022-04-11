@@ -28,6 +28,9 @@ else{
             require_once('php_class/FuelQuote.php');
             require_once('php_class/PriceCalculator.php');
             $userQuote = new FuelQuote(filter_input(INPUT_POST, "GallonNumber"), filter_input(INPUT_POST, "DelDate"), $user);
+            if ($userQuote -> getGallons() == -1){
+                header("Location: ../pages/fuel_quote_err.html");
+            }
 
         ?>
         <header>

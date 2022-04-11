@@ -40,7 +40,7 @@ else{
             require_once('php_class/FuelQuote.php');
             require_once('php_class/FuelHistory.php');
             
-            echo FuelHistory::generateHistory("cooldude9");
+            echo FuelHistory::generateHistory($user);
         ?>
         
         <button type = "button" onclick="formLoader()" class = "btn btn-primary btn-block">Submit New Quote</button>

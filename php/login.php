@@ -8,8 +8,17 @@ require_once('php_class/Login.php');
         $password = filter_input(INPUT_POST, "password");
                 
         $userLogin = new Login(filter_input(INPUT_POST, "username"), filter_input(INPUT_POST, "password"));
+
+        if ($userLogin->getUsername == NULL){
+          header("Location: ../pages/login_err.html");
+        }
                 
-        $userLogin -> checkUserPassword();
+        if($userLogin -> checkUserPassword()){
+          header("Location: ../php/fuelQuoteForm.php");
+        }
+        else{
+          header("Location: ../pages/login_err.html");
+        }
     }
     else if (null !== (filter_input(INPUT_COOKIE, "username")) && null !== (filter_input(INPUT_COOKIE, "password"))){
         header("Location: fuelQuoteForm.php");

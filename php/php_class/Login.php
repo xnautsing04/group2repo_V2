@@ -39,13 +39,13 @@
             }
 
             if (!pg_fetch_row($queryResult)){
-                header("Location: ../pages/login_err.html");
+                return false;
             }
             else{
                 setcookie("username",$this->username,time() + 60*60*24*30);
                 setcookie("password",$this->password,time() + 60*60*24*30);
-                header("Location: ../php/fuelQuoteForm.php");
                 $this->validLogin = true;
+                return true;
             }
         }
 
@@ -61,10 +61,12 @@
             else{
                 $this->username = "NULL";
                 $this->password = "NULL";
-                header("Location: ../pages/login_err.html");
             }
             
-            $this -> checkUserPassword();
+            if($this -> checkUserPassword()){
+                $this->username = "NULL";
+                $this->password = "NULL";
+            }
         }
 
         //This function returns the username.
@@ -86,7 +88,6 @@
         public static function logOut(){
             setcookie("username","",time() - 3600);
             setcookie("password","",time() -3600);
-            header("Location: ../php/login.php");
         }
         
         //This function retrieves the address for the user submitted.
