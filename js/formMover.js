@@ -32,5 +32,5 @@ function profileLoader()
 //Takes you to the login screen.
 function loginLoader()
 {
-    window.location.href = "../pages/login.php";
+    window.location.href = "../php/login.php";
 }
