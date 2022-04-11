@@ -2,9 +2,9 @@
 
 <?php
 
-if(isset($_COOKIE["username"])){
-    $user = $_COOKIE["username"];
-    
+//This ensures that if a user is not logged in, it will direct them to the login page.
+if(null !== (filter_input(INPUT_COOKIE, "username"))){
+    $user = filter_input(INPUT_COOKIE, "username");
 }
 else{
     header("Location: login.php");
@@ -41,6 +41,7 @@ else{
                 <button class="tablinks" onclick="profileTab()">Profile</button>
                 <button class="tablinks" onclick="quoteTab()">Fuel Quote</button>
                 <button class="tablinks" onclick="historyTab()">Fuel Quote History</button>
+                <button class ="tablinks" onclick ="logoutTab()" style = "float: right;">Log Out</button>
             </div>
         </header>
 
