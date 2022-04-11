@@ -51,7 +51,7 @@ require_once('php_class/Login.php');
 <input type="submit" id= "login" name = "login" class="btn btn-primary btn-block" value = "Log in">
 </div>
 </form>
-<p class="text-center"><a href="../pages/registration.html">Create an Account</a></p>
+<p class="text-center"><a href="../php/registration.php">Create an Account</a></p>
 </div>
 </body>
 </html>
