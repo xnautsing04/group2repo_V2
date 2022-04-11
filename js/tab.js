@@ -9,7 +9,7 @@ function loginTab()
 //This takes you to the register page.
 function registerTab()
 {
-    window.location.href = "../pages/registration.html";
+    window.location.href = "../php/registration.php";
 }
 
 //This takes you to the profile page.
