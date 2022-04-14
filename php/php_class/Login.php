@@ -42,8 +42,6 @@
                 return false;
             }
             else{
-                setcookie("username",$this->username,time() + 60*60*24*30);
-                setcookie("password",$this->password,time() + 60*60*24*30);
                 $this->validLogin = true;
                 return true;
             }
@@ -63,7 +61,7 @@
                 $this->password = "NULL";
             }
             
-            if($this -> checkUserPassword()){
+            if(!$this -> checkUserPassword()){
                 $this->username = "NULL";
                 $this->password = "NULL";
             }
@@ -84,11 +82,6 @@
             return $this->validLogin;
         }
         
-        //This function resets the cookies for username and password.
-        public static function logOut(){
-            setcookie("username","",time() - 3600);
-            setcookie("password","",time() -3600);
-        }
         
         //This function retrieves the address for the user submitted.
         public static function userAddr($loggedUser){

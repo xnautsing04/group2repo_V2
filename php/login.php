@@ -7,7 +7,12 @@ require_once('php_class/Login.php');
         $username = filter_input(INPUT_POST, "username");
         $password = filter_input(INPUT_POST, "password");
                 
-        $userLogin = new Login(filter_input(INPUT_POST, "username"), filter_input(INPUT_POST, "password"));
+        $userLogin = new Login($username, $password);
+
+        if ($userLogin){
+          setcookie("username",$username,time() + 60*60*24*30);
+          setcookie("password",$password,time() + 60*60*24*30);
+        }
 
         if ($userLogin->getUsername == NULL){
           header("Location: ../pages/login_err.html");

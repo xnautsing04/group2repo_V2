@@ -8,17 +8,17 @@ require_once('./php_class/Login.php');
         //Test getting the username.
         public function testUsername(): void
         {
-            $userLogin = new Login ("testUsername", "testPassword123!!");
+            $userLogin = new Login ("cooldude9", "Fluffy2007!");
         
-            $this->assertSame($userLogin->getUsername(), "testUsername");
+            $this->assertSame($userLogin->getUsername(), "cooldude9");
         }
         
         //Test getting the password.
         public function testPassword(): void
         {
-            $userLogin = new Login ("testUsername", "testPassword123!!");
+            $userLogin = new Login ("cooldude9", "Fluffy2007!");
         
-            $this->assertSame($userLogin->getPassword(), "testPassword123!!");
+            $this->assertSame($userLogin->getPassword(), "Fluffy2007!");
         }
         
         //Test a null login.
@@ -45,17 +45,10 @@ require_once('./php_class/Login.php');
             $this->assertSame($userLogin->getLogin(), false);
         }
         
-        //Test logging out a user.
-        public function testLogout(): void
-        {
-            Login::logOut();
-            $this->assertTrue(!isset($_COOKIE["username"]));
-        }
-        
         //Test getting a user address.
         public function testAddr():void
         {
-            $this->assertSame(Login::userAddr('cooldude9'), "123 Alphabet Rd 456 Orange St, Houston, TX 77204");
+            $this->assertSame(Login::userAddr('cooldude9'), "123 Acrobat Rd #407C, Houston, ID 11132");
         }
     }
 
