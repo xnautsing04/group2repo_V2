@@ -44,7 +44,7 @@ else{
             <form id = "fuelForm" action = "../php/fuel_quote_result.php" method = "POST">
                 <div>
                     <span>Suggested Price/Gallon: </span>
-                    <span id = "defaultPrice"><?php echo PriceCalculator::suggestedPrice() ?></span>
+                    <span id = "defaultPrice"><?php echo PriceCalculator::suggestedPrice($user, 1) ?></span>
                 </div>
                 <div class = "form-group">
                     <label for = "GallonNumber">Number of Gallons:</label>

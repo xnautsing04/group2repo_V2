@@ -57,7 +57,7 @@ require_once('PriceCalculator.php');
         //Use the Price Calculator and the number of gallons requested to calculate the total price.
         public function calculatePrice(){
              //This will later be calculated/gathered from the pricing module, saved as it's own object.
-            $suggestedCost = PriceCalculator::suggestedPrice();
+            $suggestedCost = PriceCalculator::suggestedPrice($this->username, $this->numGallons);
     
             $price = floatval(substr($suggestedCost, 1));
             $gallonNumber = intval($this->numGallons);
@@ -90,8 +90,11 @@ require_once('PriceCalculator.php');
             if($userAddress)
             {
                 $addressString = $userAddress[0]." ".$userAddress[1].", ".$userAddress[2].", ".$userAddress[3]." ".$userAddress[4];
-            $suggestedPrice = floatval(substr(PriceCalculator::suggestedPrice(), 1));
-            $totalPrice = floatval(substr($this->calculatePrice(), 1));
+            $suggestedPrice = floatval(substr(PriceCalculator::suggestedPrice($this->username, $this->numGallons), 1));
+            //Remove '$' and ','
+            $price = str_replace('$', '', $this->calculatePrice());
+            $price = str_replace(',', '', $price);
+            $totalPrice = floatval($price);
             $time = strval(time());
             
             $insertString = 'INSERT INTO FuelQuote (Serial_No, Username, Address, Delivery_Date, Gallon_Number, Suggested_Price, Total_Price)';

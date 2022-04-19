@@ -51,7 +51,7 @@ else{
             <br>
         
             <div class = "form-group">
-                <span>Suggested Price/Gallon:</span> <span id = "defaultPrice"><?php echo PriceCalculator::suggestedPrice() ?></span> <br>
+                <span>Suggested Price/Gallon:</span> <span id = "defaultPrice"><?php echo PriceCalculator::suggestedPrice($user, filter_input(INPUT_POST, "GallonNumber")) ?></span> <br>
             </div>
 
             <div class = "form-group">
