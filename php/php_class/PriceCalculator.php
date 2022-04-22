@@ -40,8 +40,8 @@ class PriceCalculator{
             $gallonamount = .03;
         }
 
-        $margin = ($gallons/1000)*($state-$fuelhistory+$gallonamount+.1);
-        $sugg_price = $margin + ($gallons/1000);
+        $margin = 1.50*($state-$fuelhistory+$gallonamount+.1);
+        $sugg_price = $margin + 1.50;
 
         // Total Amount = gallons * suggested price/gallon
 

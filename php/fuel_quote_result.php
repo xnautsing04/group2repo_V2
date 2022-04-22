@@ -68,7 +68,7 @@ else{
             </div>
 
             <div class = "form-group">
-                <span>Total Cost: </span> <span id = "costAmount"><?php echo $userQuote -> calculatePrice()?></span> <br>
+                <span>Total Cost: </span> <span id = "costAmount"><?php echo FuelQuote::calculatePrice($user, filter_input(INPUT_POST, "GallonNumber"))?></span> <br>
             </div>
 
             <div class = "form-group">

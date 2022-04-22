@@ -55,12 +55,12 @@ require_once('PriceCalculator.php');
         }
         
         //Use the Price Calculator and the number of gallons requested to calculate the total price.
-        public function calculatePrice(){
+        public static function calculatePrice($username, $numGallons){
              //This will later be calculated/gathered from the pricing module, saved as it's own object.
-            $suggestedCost = PriceCalculator::suggestedPrice($this->username, $this->numGallons);
+            $suggestedCost = PriceCalculator::suggestedPrice($username, $numGallons);
     
             $price = floatval(substr($suggestedCost, 1));
-            $gallonNumber = intval($this->numGallons);
+            $gallonNumber = intval($numGallons);
 
             $totalCost = ($price * $gallonNumber);
             
@@ -92,7 +92,7 @@ require_once('PriceCalculator.php');
                 $addressString = $userAddress[0]." ".$userAddress[1].", ".$userAddress[2].", ".$userAddress[3]." ".$userAddress[4];
             $suggestedPrice = floatval(substr(PriceCalculator::suggestedPrice($this->username, $this->numGallons), 1));
             //Remove '$' and ','
-            $price = str_replace('$', '', $this->calculatePrice());
+            $price = str_replace('$', '', FuelQuote::calculatePrice($this->username, $this->numGallons));
             $price = str_replace(',', '', $price);
             $totalPrice = floatval($price);
             $time = strval(time());

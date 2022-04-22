@@ -26,6 +26,7 @@ else{
     <body>
         <?php
         require_once('php_class/PriceCalculator.php');
+        require_once('php_class/FuelQuote.php');
         ?>
         <header>
             <!-- Tab links -->
@@ -48,7 +49,14 @@ else{
                 </div>
                 <div class = "form-group">
                     <label for = "GallonNumber">Number of Gallons:</label>
-                    <input type = "number" id = "GallonNumber" name = "GallonNumber" class = "form-control" min = "0" required>
+                    <input type = "number" id = "GallonNumber" name = "GallonNumber" value = <?php 
+                    if (null !== filter_input(INPUT_POST, "GallonNumber")){
+                        echo filter_input(INPUT_POST, "GallonNumber");
+                    }
+                    else{
+                        echo "\"\"";
+                    }?>
+                    class = "form-control" min = "0" required>
                 </div>
                 <div class = "form-group">
                     <label>Delivery Address:</label>
@@ -56,7 +64,25 @@ else{
                 </div>
                 <div class = "form-group">
                     <label for = "DelDate">Delivery Date:</label>
-                    <input type = "date" id = "DelDate" name = "DelDate" class = "form-control" min = "2022-03-07" required>
+                    <input type = "date" id = "DelDate" name = "DelDate" value = <?php 
+                    if (null !== filter_input(INPUT_POST, "DelDate")){
+                        echo filter_input(INPUT_POST, "DelDate");
+                    }
+                    else{
+                        echo "\"\"";
+                    }?> class = "form-control" min = "2022-03-07" required>
+                </div>
+                <br>
+                <div class = "form-group">
+                    <label>Total Price:</label>
+                    <span id = "totalPrice"><?php 
+                    if (null !== filter_input(INPUT_POST, "DelDate")){
+                        echo FuelQuote::calculatePrice($user, filter_input(INPUT_POST, "GallonNumber"));
+                    }?></span><br>
+                </div>
+
+                <div class = "form-group">
+                    <input type = "submit" id = "getQuote" value="Get Quote" formaction = "../php/fuelQuoteForm.php" class = "btn btn-primary btn-block">
                 </div>
                 
                 <div class = "form-group">
