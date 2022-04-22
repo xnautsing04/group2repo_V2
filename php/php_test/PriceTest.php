@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 require_once('php_class/PriceCalculator.php');
+require_once('./php_class/ClientProfileManagement.php');
 
     class PriceTest extends TestCase{
 
@@ -10,5 +11,13 @@ require_once('php_class/PriceCalculator.php');
         {
             $this->assertTrue(PriceCalculator::suggestedPrice("cooldude9", 1) == "$1.71");
         }
-        
+        public function testOver1000(): void
+        {
+            $this->assertTrue(PriceCalculator::suggestedPrice("cooldude9", 1001) == "$1,696.70");
+        }
+        public function testOutofState(): void
+        {
+            $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "AL", "77201");
+            $this->assertTrue(PriceCalculator::suggestedPrice("cooldude9", 1) == "$1.74");
+        }
     }
