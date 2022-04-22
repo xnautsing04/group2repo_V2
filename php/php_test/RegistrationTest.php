@@ -12,7 +12,7 @@ require_once('./php_class/Registration.php');
     }
     public function testEmptyPassword(): void
     {
-        $regTester = new ClientRegistration("CoolDude9", "");
+        $regTester = new ClientRegistration("cooldude9", "");
         $this->assertSame($regTester -> getPassword(), null);
     }
 
@@ -20,12 +20,12 @@ require_once('./php_class/Registration.php');
     #Test get functions
     public function testRegGetUsername(): void
     {
-        $regTester = new ClientRegistration("CoolDude9", "fluffy2015");
+        $regTester = new ClientRegistration("cooldude9", "fluffy2015");
         $this->assertSame($regTester -> getUsername(), "CoolDude9");
     }
     public function testRegGetPassword(): void
     {
-        $regTester = new ClientRegistration("CoolDude9", "fluffy2015");
+        $regTester = new ClientRegistration("cooldude9", "fluffy2015");
         $this->assertSame($regTester -> getPassword(), "fluffy2015");
     }
 }
