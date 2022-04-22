@@ -1,9 +1,6 @@
 <?php
 
 class PriceCalculator{
-    function __construct(){
-        //TO BE ADDED LATER
-    }
     
     //This function returns the suggested price per gallon.
     public static function suggestedPrice($username, $gallons){
@@ -40,8 +37,8 @@ class PriceCalculator{
             $gallonamount = .03;
         }
 
-        $margin = 1.50*($state-$fuelhistory+$gallonamount+.1);
-        $sugg_price = $margin + 1.50;
+        $margin = (1.50)*($state-$fuelhistory+$gallonamount+.1);
+        $sugg_price = $margin + (1.50);
 
         // Total Amount = gallons * suggested price/gallon
 
