@@ -21,7 +21,7 @@ require_once('./php_class/Registration.php');
     public function testRegGetUsername(): void
     {
         $regTester = new ClientRegistration("cooldude9", "fluffy2015");
-        $this->assertSame($regTester -> getUsername(), "CoolDude9");
+        $this->assertSame($regTester -> getUsername(), "cooldude9");
     }
     public function testRegGetPassword(): void
     {

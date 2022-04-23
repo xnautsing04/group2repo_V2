@@ -48,7 +48,7 @@ require_once('./php_class/Login.php');
         //Test getting a user address.
         public function testAddr():void
         {
-            $this->assertSame(Login::userAddr('cooldude9'), "123 Acrobat Rd #407C, Houston, ID 11132");
+            $this->assertSame(Login::userAddr('cooldude9'), "122 Green Rd 244 Blue St, Houston, TX 77201");
         }
     }
 

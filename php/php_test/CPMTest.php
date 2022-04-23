@@ -41,31 +41,37 @@ require_once('./php_class/ClientProfileManagement.php');
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
         $this->assertSame($cpmTester -> getName(), null);
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
     public function testCPMEmptyParamAdd1(): void
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "", "244 Blue St", "Houston", "TX", "77201");
         $this->assertSame($cpmTester -> getAdd1(), null);
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
     public function testCPMEmptyParamAdd2(): void
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "", "Houston", "TX", "77201");
         $this->assertSame($cpmTester -> getAdd2(), "");
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
     public function testCPMEmptyParamCity(): void
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "", "TX", "77201");
         $this->assertSame($cpmTester -> getCity(), null);
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
     public function testCPMEmptyParamState(): void
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "", "77201");
         $this->assertSame($cpmTester -> getState(), null);
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
     public function testCPMEmptyParamZipcode(): void
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "");
         $this->assertSame($cpmTester -> getZipcode(), null);
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
 
     #Test parameter lengths
@@ -73,26 +79,31 @@ require_once('./php_class/ClientProfileManagement.php');
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "Johnathan L Welmsworth Jackson Livingston Martin Fransic", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
         $this->assertSame($cpmTester -> getName(), null);
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
     public function testCPMLongParamAdd1(): void
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "5865241514512478954325411 Jean Baptiste Point du Sable Lake Shore Drive Street Road Ditch Sidewalk Path Alley", "244 Blue St", "Houston", "TX", "77201");
         $this->assertSame($cpmTester -> getAdd1(), null);
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
     public function testCPMLongParamAdd2(): void
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "5865241514512478954325411 Jean Baptiste Point du Sable Lake Shore Drive Street Road Ditch Sidewalk Path Alley", "Houston", "TX", "77201");
         $this->assertSame($cpmTester -> getAdd2(), null);
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
     public function testCPMLongParamZipcode(): void
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201-55623");
         $this->assertSame($cpmTester -> getZipcode(), null);
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
     public function testCPMShortParamZipcode(): void
     {
         $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "7720");
         $this->assertSame($cpmTester -> getZipcode(), null);
+        $cpmTester = new ClientProfileManagement("cooldude9", "John Smith", "122 Green Rd", "244 Blue St", "Houston", "TX", "77201");
     }
 }
 ?>

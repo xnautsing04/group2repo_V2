@@ -70,15 +70,13 @@ require_once('./php_class/FuelQuote.php');
     //Test an interger price.
     public function testPriceInt(): void
     {
-        $quoteTester = new FuelQuote(100, "2022-05-07", "cooldude9");
-        $this->assertSame($quoteTester->calculatePrice(), "$250.00");
+        $this->assertSame("$171.00", FuelQuote::calculatePrice("cooldude9", 100));
     }
     
     //Test a float price.
     public function testPriceFloat(): void
     {
-        $quoteTester = new FuelQuote(101, "2022-05-07", "cooldude9");
-        $this->assertSame($quoteTester->calculatePrice(), "$252.50");
+        $this->assertSame("$210.33", FuelQuote::calculatePrice("cooldude9", 123));
     }
     
     //Test inserting data into the database.
