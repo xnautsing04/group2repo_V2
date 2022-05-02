@@ -1,4 +1,4 @@
-This website was tested with a local XAMPP server. This can be used when back-end (Heroku and Ionis) are not activated and connected by downloading the files and using localhost.
+This website was tested with a local XAMPP server, which can be used to run the web application locally.
 
 Sources include:
 
