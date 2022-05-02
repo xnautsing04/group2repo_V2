@@ -1,5 +1,7 @@
 This website was tested with a local XAMPP server, which can be used to run the web application locally.
 
+Important detail: the password for the database is not uploaded within the database.json file, and must be added for local testing with a postgreSQL database.
+
 Sources include:
 
 https://www.w3schools.com/howto/howto_js_tabs.asp - This was used as a general outline for creating the tabs seen on the top of the page.
