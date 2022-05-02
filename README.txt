@@ -1,6 +1,6 @@
 This website was tested with a local XAMPP server, which can be used to run the web application locally.
 
-Important detail: the password for the database is not uploaded within the database.json file, and must be added for local testing with a postgreSQL database.
+Important detail: the password for the database is not uploaded within the database.json file, and must be added manually for local testing with a postgreSQL database.
 
 Sources include:
 
